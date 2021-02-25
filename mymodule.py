@@ -43,33 +43,37 @@ for sitenumber in sitelength:
 
     for cactus in items: #for every of that p tag
 
-        # take the bs4 variable and string it
-        focused_string = items[i]
-        focus_string = str(focused_string)
+        try:
+            # take the bs4 variable and string it
+            focused_string = items[i]
+            focus_string = str(focused_string)
 
-        # find point of actual string
-        stringsniparea1 = focus_string.index(">")
-        stringsnipped1 = focus_string[stringsniparea1:]
+            # find point of actual string
+            stringsniparea1 = focus_string.index(">")
+            stringsnipped1 = focus_string[stringsniparea1:]
 
-        stringsniparea2 = stringsnipped1.index("<")
-        stringsnipped2 = stringsnipped1[:stringsniparea2]
+            stringsniparea2 = stringsnipped1.index("<")
+            stringsnipped2 = stringsnipped1[:stringsniparea2]
 
-        # the string free of paragraph tags
-        cleanstring = stringsnipped2
+            # the string free of paragraph tags
+            cleanstring = stringsnipped2
 
-        # snipping the business name
-        business_name_snip_area = cleanstring.index(",")
-        business_name = cleanstring[1:business_name_snip_area]
+            # snipping the business name
+            business_name_snip_area = cleanstring.index(",")
+            business_name = cleanstring[1:business_name_snip_area]
 
-        # snipping phone number
-        phone_number_snip_area = cleanstring.index("+")
-        phone_number = cleanstring[phone_number_snip_area:]
+            # snipping phone number
+            phone_number_snip_area = cleanstring.index("+")
+            phone_number = cleanstring[phone_number_snip_area:]
 
-        # snipping the address
-        address = cleanstring[business_name_snip_area + 2:phone_number_snip_area]
+            # snipping the address
+            address = cleanstring[business_name_snip_area + 2:phone_number_snip_area]
 
-        # combining and displaying string
-        displaystring = ("Business name: " + business_name + "\n" + "Address: " + address + "\n" + "Phone number: " + phone_number + "\n")
-        print(displaystring)
+            # combining and displaying string
+            displaystring = ("Business name: " + business_name + "\n" + "Address: " + address + "\n" + "Phone number: " + phone_number + "\n")
+            print(displaystring)
 
-        i = i + 1
+            i = i + 1
+        except:
+            # print("thing doesnt have stuff" + "\n")
+            i = i + 1
