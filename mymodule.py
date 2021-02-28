@@ -7,6 +7,8 @@ sitelength = [1,2,3,4,5,6,7,8,9]
 
 
 
+businesscategory = "automotives"
+
 def choosesite(sitenumber):
     global site
     sitenumber
@@ -30,8 +32,11 @@ def choosesite(sitenumber):
         site = "https://www.nzdirectory.co.nz/automotives-9.html"
     return site
 
-
-
+# def incrimentpage(category,pagenumber):
+#     global currentpagenumber
+#     currentpagenumber = pagenumber + 1
+#     newpage = f"https://www.nzdirectory.co.nz/{category}-{pagenumber}.html"
+#     return newpage
 
 
 for sitenumber in sitelength:
