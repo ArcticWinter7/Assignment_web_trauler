@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 sitenumber = 1
 site = ""
 categorylist = ["automotives", "advertising", "building-tools"]
-sitelength = findpagecount(categorylist) 
 categoriesdone = 0
 done = 0
 currentcategory = ""
@@ -13,9 +12,11 @@ currentpagenumber = 0
 def findpagecount(tag):
     page_html = requests.get(f"https://www.nzdirectory.co.nz/{tag}.html")
     Soup = BeautifulSoup(page_html.text, 'html.parser')
-    NzDirecotryPageNum = Soup.find_all('div', id="page_cat")
+    NzDirecotryPageNum = Soup.find_all('div', class_="pages")
     NzDirecotryListNum = []
-    return nzli
+    _pagecount = len(NzDirecotryListNum)
+    return NzDirecotryPageNum
+
 
 
 def incrimentpage(category,pagenumber):
@@ -36,16 +37,17 @@ def choosecategory(catlist, catsdone):
 for x in categorylist:
 
     currentcategory = choosecategory(categorylist, categoriesdone)
+    sitelength = findpagecount(currentcategory) 
     currentpagenumber = 0
     print("Current category: " + currentcategory + "\n")
-    for sitenumber in sitelength:
+    for y in sitelength:
         site = incrimentpage(currentcategory,currentpagenumber)
         i = 0
         page_html = requests.get(site)
         html_soup = BeautifulSoup(page_html.text, 'html.parser')
         items = html_soup.find_all("p", class_="address")
 
-        for taj in items: #for every of that p tag
+        for z in items: #for every of that p tag
 
             try:
                 # take the bs4 variable and string it

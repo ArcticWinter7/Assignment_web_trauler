@@ -11,9 +11,6 @@ def module1(_entercategories):
     currentcategory = ""
     currentpagenumber = 0
     exitdisplaystring = ""
-    namelist = []
-    addresslist = []
-    contactlist = []
 
 
     def findpagecount(tag):
@@ -44,7 +41,7 @@ def module1(_entercategories):
         currentcategory = choosecategory(categorylist, categoriesdone)
         sitelength = findpagecount(currentcategory) 
         currentpagenumber = 0
-        # print("Current category: " + currentcategory + "\n")
+        print("Current category: " + currentcategory + "\n")
         currentcategorytemp = ("Current category: " + currentcategory + "\n")
 
         exitdisplaystring = exitdisplaystring + currentcategorytemp
@@ -65,7 +62,7 @@ def module1(_entercategories):
 
                     # find point of actual string
                     stringsniparea1 = focus_string.index(">")
-                    stringsnipped1 = focus_string[stringsniparea1 + 1:]
+                    stringsnipped1 = focus_string[stringsniparea1:]
 
                     stringsniparea2 = stringsnipped1.index("<")
                     stringsnipped2 = stringsnipped1[:stringsniparea2]
@@ -86,22 +83,17 @@ def module1(_entercategories):
 
                     # combining and displaying string
                     displaystring = ("Business name: " + business_name + "\n" + "Address: " + address + "\n" + "Phone number: " + phone_number + "\n")
-                    # print(displaystring)
+                    print(displaystring)
                     exitdisplaystring = exitdisplaystring + displaystring
-                    namelist.append(business_name)
-                    addresslist.append(address)
-                    contactlist.append(phone_number)
 
                     i = i + 1
-                except Exception as e:
-                    print(e)
+                except:
                     i = i + 1
-                    print(e)
         categoriesdone = categoriesdone + 1
-    return namelist,addresslist,contactlist
+    return exitdisplaystring
 
-# def start():
-#     entercategories = ["automotives","advertising"]
-#     print(module1(entercategories))
+def start():
+    entercategories = ["automotives","advertising"]
+    print(module1(entercategories))
 
-# start()
+start()

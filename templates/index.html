@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/main.css') }}">
+</head>
+<body>
+    <select name="" id="">
+      <option value="automobiles"></option>
+      <option value="other"></option>
+    </select>
+
+    <button onclick=""></button>
+
+    <table style="width:100%; border: 2px solid black; text-align: left">
+        <tr style="border: 2px solid black;">
+          <th style="border: 2px solid black;">Business name:</th>
+          <th style="border: 2px solid black;">Address:</th>
+          <th style="border: 2px solid black;">Contact:</th>
+        </tr>   
+        {% for i in range(0,lengtho2) %}
+        <tr style="border: 2px solid black;">
+            <td style="border-top: 2px solid black;">{{namlist[i]}}</td>
+            <td style="border-top: 2px solid black;">{{addlist[i]}}</td>
+            <td style="border-top: 2px solid black;">{{contlist[i]}}</td>
+        <tr>
+        {% endfor %}
+        
+        </tr>
+      </table>
+      <script>
+        function myFunction() {
+          $.ajax({
+          type: "POST",
+          url: "~/maincode.py",
+          data: { param: "perhaps"}
+          }).done(function(printthing) {
+            // do something
+          });
+        }
+
+      </script>
+</body>
+</html>
