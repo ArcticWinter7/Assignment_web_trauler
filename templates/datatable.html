@@ -1,0 +1,14 @@
+<tbody>
+    <th style="border: 2px solid black;">
+        <td style="border: 2px solid black;">Business name:</td>
+        <td style="border: 2px solid black;">Address:</td>
+        <td style="border: 2px solid black;">Contact:</td>
+    </th>   
+    {% for i in range(0,len(namlist)) %}
+        <tr style="border: 2px solid black;">
+            <td style="border-top: 2px solid black;">{{namlist[i]}}</td>
+            <td style="border-top: 2px solid black;">{{addlist[i]}}</td>
+            <td style="border-top: 2px solid black;">{{contlist[i]}}</td>
+        <tr>
+    {% endfor %}
+</tbody>

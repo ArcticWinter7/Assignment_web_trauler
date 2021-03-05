@@ -65,7 +65,7 @@ def module1(_entercategories):
 
                     # find point of actual string
                     stringsniparea1 = focus_string.index(">")
-                    stringsnipped1 = focus_string[stringsniparea1 + 1:]
+                    stringsnipped1 = focus_string[stringsniparea1:]
 
                     stringsniparea2 = stringsnipped1.index("<")
                     stringsnipped2 = stringsnipped1[:stringsniparea2]
